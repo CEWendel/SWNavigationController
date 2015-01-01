@@ -14,8 +14,8 @@
 		0F6F147F1A548CD400B216EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F147E1A548CD400B216EF /* Images.xcassets */; };
 		0F6F14821A548CD400B216EF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F14801A548CD400B216EF /* LaunchScreen.xib */; };
 		0F6F148E1A548CD500B216EF /* SWNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F148D1A548CD500B216EF /* SWNavigationControllerTests.m */; };
-		0F6F149A1A54911F00B216EF /* SWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F14991A54911F00B216EF /* SWNavigationController.m */; };
-		0F6F149D1A54945500B216EF /* SWPushAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F149C1A54945500B216EF /* SWPushAnimatedTransitioning.m */; };
+		0F6F14A81A55CD4E00B216EF /* SWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F14A41A55CD4E00B216EF /* SWNavigationController.m */; };
+		0F6F14A91A55CD4E00B216EF /* SWPushAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F14A61A55CD4E00B216EF /* SWPushAnimatedTransitioning.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +42,10 @@
 		0F6F14871A548CD400B216EF /* SWNavigationControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWNavigationControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6F148C1A548CD500B216EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6F148D1A548CD500B216EF /* SWNavigationControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWNavigationControllerTests.m; sourceTree = "<group>"; };
-		0F6F14981A54911F00B216EF /* SWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNavigationController.h; sourceTree = "<group>"; };
-		0F6F14991A54911F00B216EF /* SWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNavigationController.m; sourceTree = "<group>"; };
-		0F6F149B1A54945500B216EF /* SWPushAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPushAnimatedTransitioning.h; sourceTree = "<group>"; };
-		0F6F149C1A54945500B216EF /* SWPushAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPushAnimatedTransitioning.m; sourceTree = "<group>"; };
+		0F6F14A41A55CD4E00B216EF /* SWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWNavigationController.m; path = PodFiles/SWNavigationController.m; sourceTree = "<group>"; };
+		0F6F14A51A55CD4E00B216EF /* SWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWNavigationController.h; path = PodFiles/SWNavigationController.h; sourceTree = "<group>"; };
+		0F6F14A61A55CD4E00B216EF /* SWPushAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWPushAnimatedTransitioning.m; path = PodFiles/SWPushAnimatedTransitioning.m; sourceTree = "<group>"; };
+		0F6F14A71A55CD4E00B216EF /* SWPushAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWPushAnimatedTransitioning.h; path = PodFiles/SWPushAnimatedTransitioning.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +129,10 @@
 		0F6F14971A54910500B216EF /* PodFiles */ = {
 			isa = PBXGroup;
 			children = (
-				0F6F14981A54911F00B216EF /* SWNavigationController.h */,
-				0F6F14991A54911F00B216EF /* SWNavigationController.m */,
-				0F6F149B1A54945500B216EF /* SWPushAnimatedTransitioning.h */,
-				0F6F149C1A54945500B216EF /* SWPushAnimatedTransitioning.m */,
+				0F6F14A41A55CD4E00B216EF /* SWNavigationController.m */,
+				0F6F14A51A55CD4E00B216EF /* SWNavigationController.h */,
+				0F6F14A61A55CD4E00B216EF /* SWPushAnimatedTransitioning.m */,
+				0F6F14A71A55CD4E00B216EF /* SWPushAnimatedTransitioning.h */,
 			);
 			name = PodFiles;
 			sourceTree = "<group>";
@@ -238,9 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6F147A1A548CD400B216EF /* ViewController.m in Sources */,
-				0F6F149A1A54911F00B216EF /* SWNavigationController.m in Sources */,
+				0F6F14A81A55CD4E00B216EF /* SWNavigationController.m in Sources */,
 				0F6F14771A548CD400B216EF /* AppDelegate.m in Sources */,
-				0F6F149D1A54945500B216EF /* SWPushAnimatedTransitioning.m in Sources */,
+				0F6F14A91A55CD4E00B216EF /* SWPushAnimatedTransitioning.m in Sources */,
 				0F6F14741A548CD400B216EF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
