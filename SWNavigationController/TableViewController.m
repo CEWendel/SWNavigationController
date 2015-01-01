@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Christopher Wendel. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TableViewController.h"
 
-@interface ViewController ()
+@interface TableViewController ()
 
 @end
 
-@implementation ViewController
+@implementation TableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
