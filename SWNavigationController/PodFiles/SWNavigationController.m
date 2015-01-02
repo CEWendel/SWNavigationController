@@ -9,6 +9,8 @@
 #import "SWNavigationController.h"
 #import "SWPushAnimatedTransitioning.h"
 
+#define kSWGestureVelocityThreshold 800
+
 typedef void (^SWNavigationControllerPushCompletion)(void);
 
 @interface SWNavigationController () {
@@ -106,31 +108,37 @@ typedef void (^SWNavigationControllerPushCompletion)(void);
 
 - (void)handleRightSwipe:(UIScreenEdgePanGestureRecognizer *)swipeGestureRecognizer
 {
-    CGFloat width = self.view.frame.size.width;
-    CGFloat percent = MAX(-[swipeGestureRecognizer translationInView:self.view].x, 0) / width;
-    CGFloat velocity = 0;
+    CGFloat progress = ABS(-[swipeGestureRecognizer translationInView:self.view].x / self.view.frame.size.width); // 1.0 When the pushable vc has been pulled into place
     
+    // Start, update, or finish the interactive push transition
     switch (swipeGestureRecognizer.state) {
-        case UIGestureRecognizerStatePossible:
-            break;
         case UIGestureRecognizerStateBegan:
             [self pushNextViewControllerFromRight];
             break;
         case UIGestureRecognizerStateChanged:
-            [self.percentDrivenInteractiveTransition updateInteractiveTransition:percent];
+            [self.percentDrivenInteractiveTransition updateInteractiveTransition:progress];
             break;
         case UIGestureRecognizerStateEnded:
-            velocity = [swipeGestureRecognizer velocityInView:self.view].x;
-            if (velocity < 0 && (percent > 0.5 || velocity < -1000))
-                [self.percentDrivenInteractiveTransition finishInteractiveTransition];
-            else
-                [self.percentDrivenInteractiveTransition cancelInteractiveTransition];
+            // Figure out if we should finish the transition or not
+            [self handleEdgeSwipeEndedWithProgress:progress velocity:[swipeGestureRecognizer velocityInView:self.view].x];
             break;
-        case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateFailed:
             [self.percentDrivenInteractiveTransition cancelInteractiveTransition];
             break;
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStatePossible:
+        default:
+            break;
     }
+}
+
+- (void)handleEdgeSwipeEndedWithProgress:(CGFloat)progress velocity:(CGFloat)velocity
+{
+    // kSWGestureVelocityThreshold threshold indicates how hard the finger has to flick left to finish the push transition
+    if (velocity < 0 && (progress > 0.5 || velocity < -kSWGestureVelocityThreshold))
+        [self.percentDrivenInteractiveTransition finishInteractiveTransition];
+    else
+        [self.percentDrivenInteractiveTransition cancelInteractiveTransition];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -142,7 +150,7 @@ typedef void (^SWNavigationControllerPushCompletion)(void);
     if (gestureRecognizer == self.interactivePushGestureRecognizer) {
         shouldBegin = self.pushableViewControllers.count > 0 && !(self.pushableViewControllers.lastObject == self.topViewController);
     } else {
-        shouldBegin = YES;
+        shouldBegin = self.viewControllers.count > 1;
     }
     
     return shouldBegin;

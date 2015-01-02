@@ -39,7 +39,7 @@
     snapshotToView.frame = toViewFinalFrame;
     snapshotToView.layer.shadowRadius = kSWToLayerShadowRadius;
     snapshotToView.layer.shadowOpacity = kSWFromLayerShadowOpacity;
-    CGRect shadowFrame = toView.layer.bounds;
+    CGRect shadowFrame = snapshotToView.layer.bounds;
     CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
     snapshotToView.layer.shadowPath = shadowPath;
     
