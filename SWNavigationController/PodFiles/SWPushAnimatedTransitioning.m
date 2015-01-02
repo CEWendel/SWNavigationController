@@ -52,6 +52,7 @@
     snapshotToView.layer.shadowOpacity = kSWToLayerShadowOpacity;
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        // Move views to final frames
         snapshotToView.frame = fromView.frame;
         fromView.frame = fromViewFinalFrame;
     } completion:^(BOOL finished) {
