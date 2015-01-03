@@ -46,7 +46,7 @@ To use `SWNavigationController`, simply change the type of the `UINavigationCont
 
 <p align="center"><img src="DemoAssets/SWScreenshot1.png" /> </p>
 
-* Or programmatically in your <AppDelegate>
+* Or programmatically in your `AppDelegate`
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     SWNavigationController *navController = [[SWNavigationController alloc] initWithRootViewController:rootViewController];
@@ -56,5 +56,18 @@ To use `SWNavigationController`, simply change the type of the `UINavigationCont
     return YES;
 }
 ```
+
+##Contributing
+Use [Github issues](https://github.com/cewendel/SWNavigationController/issues) to track bugs and feature requests.
+
+##Contact
+
+Chris Wendel
+
+- http://twitter.com/CEWendel
+
+## Licence
+
+MIT 
 
 
