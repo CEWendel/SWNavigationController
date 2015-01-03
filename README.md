@@ -9,14 +9,14 @@ A UINavigationController subclass and corresponding UINavigationControllerDelega
 In your Podfile:
 <pre>pod 'SWNavigationController' </pre>
 
-Or just close this repo and manually add the files from the <pre>PodFiles</pre> directory to your project
+Or just close this repo and manually add the files from the `PodFiles` directory to your project
 
 ##Functionality
 
 ```objc
 @property (nonatomic, strong, readonly) UIGestureRecognizer *interactivePushGestureRecognizer;
 ```
-<pre>SWNavigationController</pre> contains a interactive push gesture recognizer, which behaves opposite of <pre>UINavigationController</pre>'s existing interactive pop gesture recognizer. When a view controller has been popped off the navigation stack it can be pulled back onto the top of the navigation stack by a right edge swipe.
+`SWNavigationController` contains a interactive push gesture recognizer, which behaves opposite of `UINavigationController`'s existing interactive pop gesture recognizer. When a view controller has been popped off the navigation stack it can be pulled back onto the top of the navigation stack by a right edge swipe.
 
 The interactive push by default attempts to behave similarly to the built-in interactive pop.
 
@@ -25,22 +25,22 @@ The interactive push by default attempts to behave similarly to the built-in int
 ```objc
 @property (nonatomic, strong) Class pushAnimatedTransitioningClass;
 ```
-<pre>pushAnimatedTransitioningClass</pre> can be set to override the default interactive push transition that is used by default by <SWNavigationController> when pulling from the right edge of the screen. This class must implement the protocol UIViewControllerAnimatedTransitioning.
+`pushAnimatedTransitioningClass` can be set to override the default interactive push transition that is used by default by `SWNavigationController` when pulling from the right edge of the screen. This class must implement the protocol `UIViewControllerAnimatedTransitioning`.
 
 ```objc
 @property (nonatomic, strong) Class popAnimatedTransitioningClass;
 ```
-<pre>popAnimatedTransitioningClass</pre> can be set to override <pre>UINavigationController</pre>'s default interactive pop transition when pulling from the left edge of the screen. This class must implement the protocol UIViewControllerAnimatedTransitioning.
+`popAnimatedTransitioningClass` can be set to override `UINavigationController`'s default interactive pop transition when pulling from the left edge of the screen. This class must implement the protocol `UIViewControllerAnimatedTransitioning`.
 
 ###Features
 * Easy drop-in creation using either Storyboards or programmatically
-* Default push transition that mimics <pre>UINavigationController</pre>'s pop transition
+* Default push transition that mimics `UINavigationController`'s pop transition
 * Customizable push and pop transitions
 * Easily enable and disable pulling view controllers back onto the stack
 
 ##Usage
 
-To use <pre>SWNavigationController</pre>, simply change the type of the <pre>UINavigationController</pre>
+To use `SWNavigationController`, simply change the type of the `UINavigationController`
 
 * Either in your Storyboard
 
