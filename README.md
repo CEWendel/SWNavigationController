@@ -37,6 +37,7 @@ The interactive push by default attempts to behave similarly to the built-in int
 * Default push transition that mimics `UINavigationController`'s pop transition
 * Customizable push and pop transitions
 * Easily enable and disable pulling view controllers back onto the stack
+* iOS 7 and above
 
 ##Usage
 
