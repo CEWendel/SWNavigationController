@@ -167,6 +167,9 @@ typedef void (^SWNavigationControllerPushCompletion)(void);
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
+    // Dismiss the current view controllers keyboard (if it is displaying one), to avoid first responder problems when pushing back onto the stack
+    [self.topViewController.view endEditing:YES];
+    
     UIViewController *poppedViewController = [super popViewControllerAnimated:animated];
     [self.pushableViewControllers addObject:poppedViewController];
     return poppedViewController;
@@ -221,7 +224,8 @@ typedef void (^SWNavigationControllerPushCompletion)(void);
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
-    if (operation == UINavigationControllerOperationPush && [[(SWNavigationController *)navigationController interactivePushGestureRecognizer] state] == UIGestureRecognizerStateBegan) {
+    // If we are either pulling in a new VC onto the stack or we have a custom pushAnimatedTransitioningClass that we want to use to transition
+    if (operation == UINavigationControllerOperationPush && ([[(SWNavigationController *)navigationController interactivePushGestureRecognizer] state] == UIGestureRecognizerStateBegan || (self.pushAnimatedTransitioningClass != [SWPushAnimatedTransitioning class]))) {
         return [self.pushAnimatedTransitioningClass new];
     } else if (operation == UINavigationControllerOperationPop && self.popAnimatedTransitioningClass) {
         return [self.popAnimatedTransitioningClass new];
