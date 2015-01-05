@@ -11,6 +11,25 @@ In your Podfile:
 
 Or just close this repo and manually add the files from the `PodFiles` directory to your project
 
+##Usage
+
+To use `SWNavigationController`, simply change the type of the `UINavigationController`
+
+* Either in your Storyboard
+
+<p align="center"><img src="DemoAssets/SWScreenshot1.png" /> </p>
+
+* Or programmatically in your `AppDelegate`
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    SWNavigationController *navController = [[SWNavigationController alloc] initWithRootViewController:rootViewController];
+    
+    [self.window setRootViewController:navController];
+    
+    return YES;
+}
+```
+
 ##Functionality
 
 ```objc
@@ -38,25 +57,6 @@ The interactive push by default attempts to behave similarly to the built-in int
 * Customizable push and pop transitions
 * Easily enable and disable pulling view controllers back onto the stack
 * iOS 7 and above
-
-##Usage
-
-To use `SWNavigationController`, simply change the type of the `UINavigationController`
-
-* Either in your Storyboard
-
-<p align="center"><img src="DemoAssets/SWScreenshot1.png" /> </p>
-
-* Or programmatically in your `AppDelegate`
-```objc
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    SWNavigationController *navController = [[SWNavigationController alloc] initWithRootViewController:rootViewController];
-    
-    [self.window setRootViewController:navController];
-    
-    return YES;
-}
-```
 
 ##Contributing
 Use [Github issues](https://github.com/cewendel/SWNavigationController/issues) to track bugs and feature requests.
