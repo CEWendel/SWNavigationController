@@ -32,6 +32,9 @@ To use `SWNavigationController`, simply change the type of the `UINavigationCont
 
 ##Functionality
 
+### API
+####  Interactive Push Gesture
+
 ```objc
 @property (nonatomic, strong, readonly) UIGestureRecognizer *interactivePushGestureRecognizer;
 ```
@@ -41,10 +44,14 @@ The interactive push by default attempts to behave similarly to the built-in int
 
 <p align="center"><img src="DemoAssets/SWScreenRecord2.gif" height="572" width="325"/> </p>
 
+#### Push Transition Class
+
 ```objc
 @property (nonatomic, strong) Class pushAnimatedTransitioningClass;
 ```
 `pushAnimatedTransitioningClass` can be set to override the default interactive push transition that is used by default by `SWNavigationController` when pulling from the right edge of the screen. This class must implement the protocol `UIViewControllerAnimatedTransitioning`.
+
+#### Pop Transition Class
 
 ```objc
 @property (nonatomic, strong) Class popAnimatedTransitioningClass;
